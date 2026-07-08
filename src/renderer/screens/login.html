@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>DocTouché! — Accesso</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 30% 20%, #1e4fa3, #0b2d63 70%);
+    font-family: 'Segoe UI', system-ui, sans-serif; color: #fff;
+  }
+  .card {
+    width: 340px; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  h1 { text-align:center; font-size: 22px; margin: 0 0 4px; letter-spacing: .5px; }
+  .sub { text-align:center; font-size: 12px; opacity:.7; margin-bottom: 24px; }
+  label { font-size: 12px; opacity:.8; display:block; margin: 14px 0 4px; }
+  input {
+    width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.08); color: #fff; font-size: 14px; outline: none;
+  }
+  input:focus { border-color: #7fb2ff; }
+  button {
+    width: 100%; margin-top: 22px; padding: 11px; border: none; border-radius: 8px;
+    background: #ffffff; color: #0b2d63; font-weight: 600; font-size: 14px; cursor: pointer;
+  }
+  button:hover { background: #d8e7ff; }
+  .err { color: #ffb3b3; font-size: 12px; margin-top: 10px; min-height: 14px; text-align:center; }
+  .foot { text-align:center; font-size: 11px; opacity:.5; margin-top: 18px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>DocTouché!</h1>
+    <div class="sub">Accesso tramite Touché! PassWeb</div>
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input id="email" type="email" required autocomplete="username">
+      <label for="password">Password</label>
+      <input id="password" type="password" required autocomplete="current-password">
+      <button type="submit">Accedi</button>
+      <div class="err" id="err"></div>
+    </form>
+    <div class="foot">v0.1.0 · offline-first · sync automatica</div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

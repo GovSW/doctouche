@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>DocTouché! — Amministrazione</title>
+<link rel="stylesheet" href="../styles/app.css">
+<style>
+  body { background:#eef0f4; font-family:'Segoe UI',sans-serif; margin:0; }
+  #admin-header { background:#0b2d63; color:#fff; padding:14px 24px; font-size:16px; }
+  #admin-tabs { display:flex; gap:4px; background:#f3f4f7; padding:8px 20px 0; border-bottom:1px solid #d8dbe2; }
+  #admin-tabs button { border:none; background:transparent; padding:8px 16px; font-size:13px; border-radius:6px 6px 0 0; cursor:pointer; }
+  #admin-tabs button.active { background:#fff; font-weight:600; }
+  .admin-panel { display:none; padding:20px 24px; }
+  .admin-panel.active { display:block; }
+  table.admin-table { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  table.admin-table th, table.admin-table td { padding:8px 12px; border-bottom:1px solid #eee; font-size:13px; text-align:left; }
+  table.admin-table th { background:#f7f8fa; }
+  .btn { padding:6px 12px; border-radius:5px; border:1px solid #ccc; background:#fafafa; cursor:pointer; font-size:12px; }
+  .btn-primary { background:#0b2d63; color:#fff; border-color:#0b2d63; }
+  .btn-danger { background:#c0392b; color:#fff; border-color:#c0392b; }
+  #orgchart { display:flex; flex-direction:column; gap:8px; }
+  .org-node { display:flex; align-items:center; gap:8px; background:#fff; padding:8px 12px; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  .org-node input { flex:1; padding:5px 8px; border:1px solid #ccc; border-radius:4px; }
+  .badge { padding:2px 8px; border-radius:10px; font-size:11px; background:#ffe6a8; }
+  .badge.approved { background:#c8f0c8; }
+  .badge.pending { background:#ffe6a8; }
+</style>
+</head>
+<body>
+  <div id="admin-header">DocTouché! — Gestore Amministrazione</div>
+  <div id="admin-tabs">
+    <button class="atab active" data-p="utenti">Utenti</button>
+    <button class="atab" data-p="organizzazioni">Organizzazioni</button>
+    <button class="atab" data-p="organigramma">Organigramma &amp; Workflow</button>
+    <button class="atab" data-p="normativa">Banca dati normativa</button>
+  </div>
+
+  <div class="admin-panel active" id="panel-utenti">
+    <h3>Utenti registrati</h3>
+    <table class="admin-table" id="tblUtenti">
+      <thead><tr><th>Nome</th><th>Email</th><th>Organizzazione</th><th>Stato</th><th>Azioni</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="admin-panel" id="panel-organizzazioni">
+    <h3>Richieste di creazione organizzazione</h3>
+    <table class="admin-table" id="tblOrg">
+      <thead><tr><th>Nome</th><th>Richiedente</th><th>Stato</th><th>Azioni</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="admin-panel" id="panel-organigramma">
+    <h3>Organigramma approvativo</h3>
+    <p style="font-size:12px;color:#666">Definisci gli organi (es. Segreteria → Consiglio Direttivo → Presidenza) a cui sottoporre l'approvazione dei documenti, in ordine.</p>
+    <div id="orgchart"></div>
+    <button class="btn" id="addOrganNode" style="margin-top:10px">+ Aggiungi organo</button>
+    <button class="btn btn-primary" id="saveOrgchart" style="margin-top:10px">Salva organigramma</button>
+  </div>
+
+  <div class="admin-panel" id="panel-normativa">
+    <h3>Banca dati normativa federale</h3>
+    <input id="normTitolo" placeholder="Titolo norma" style="padding:6px;width:220px">
+    <input id="normRif" placeholder="Riferimento (es. Art. 12 Regolamento X)" style="padding:6px;width:260px">
+    <textarea id="normTesto" placeholder="Testo della norma" style="width:100%;height:80px;margin-top:8px;padding:8px"></textarea>
+    <button class="btn btn-primary" id="addNorm" style="margin-top:8px">Aggiungi alla banca dati</button>
+    <table class="admin-table" id="tblNorm" style="margin-top:16px">
+      <thead><tr><th>Titolo</th><th>Riferimento</th><th>Categoria</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="../admin.bundle.js"></script>
+</body>
+</html>

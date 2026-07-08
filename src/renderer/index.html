@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>DocTouché!</title>
+<link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+  <div id="titlebar">
+    <span id="appTitle">DocTouché! — <span id="docName">Nuovo documento</span></span>
+    <div id="syncStatus" class="sync-ok">● sincronizzato</div>
+  </div>
+
+  <div id="ribbon">
+    <div class="ribbon-tabs">
+      <button class="rtab active" data-tab="home">Home</button>
+      <button class="rtab" data-tab="insert">Inserisci</button>
+      <button class="rtab" data-tab="layout">Layout</button>
+      <button class="rtab" data-tab="normativa">Normativa &amp; Protocollo</button>
+      <button class="rtab" data-tab="revisione">Revisione &amp; Workflow</button>
+      <button class="rtab" data-tab="condivisione">Condivisione</button>
+    </div>
+    <div class="ribbon-panels">
+      <div class="rpanel" id="panel-home">
+        <select id="fontFamily"><option>Calibri</option><option>Arial</option><option>Times New Roman</option><option>Georgia</option></select>
+        <select id="fontSize"><option>10</option><option>11</option><option selected>12</option><option>14</option><option>16</option><option>18</option><option>24</option></select>
+        <button data-cmd="bold"><b>B</b></button>
+        <button data-cmd="italic"><i>I</i></button>
+        <button data-cmd="underline"><u>U</u></button>
+        <select id="paraStyle">
+          <option value="paragraph">Normale</option>
+          <option value="heading1">Titolo 1</option>
+          <option value="heading2">Titolo 2</option>
+          <option value="heading3">Titolo 3</option>
+        </select>
+        <button data-cmd="bulletList">• Elenco</button>
+        <button data-cmd="orderedList">1. Elenco</button>
+        <button data-cmd="alignLeft">⟸</button>
+        <button data-cmd="alignCenter">≡</button>
+        <button data-cmd="alignRight">⟹</button>
+        <button data-cmd="alignJustify">☰</button>
+        <span style="flex:1"></span>
+        <button data-cmd="exportDocx">⬇ Esporta .docx</button>
+        <button data-cmd="exportPdf">⬇ Esporta .pdf</button>
+        <button data-cmd="openAdmin">⚙ Amministrazione</button>
+      </div>
+      <div class="rpanel hidden" id="panel-insert">
+        <button data-cmd="insertTable">Tabella</button>
+        <button data-cmd="insertImage">Immagine</button>
+        <button data-cmd="insertLine">Linea</button>
+        <button data-cmd="insertPageBreak">Interruzione pagina</button>
+        <button data-cmd="insertCrossRef">Riferimento incrociato</button>
+      </div>
+      <div class="rpanel hidden" id="panel-layout">
+        <button data-cmd="editHeader">Intestazione</button>
+        <button data-cmd="editFooter">Piè di pagina</button>
+        <button data-cmd="differentFirstPage">Prima pagina diversa</button>
+        <button data-cmd="pageMargins">Margini</button>
+      </div>
+      <div class="rpanel hidden" id="panel-normativa">
+        <input id="normSearch" placeholder="Cerca in banca dati normativa federale…">
+        <button data-cmd="searchNorm">Cerca</button>
+        <hr>
+        <button data-cmd="protoConnect">Collega a Protocollo.net</button>
+        <input id="protoField" placeholder="Numero protocollo…">
+        <button data-cmd="protoInsertField">Inserisci campo protocollo</button>
+      </div>
+      <div class="rpanel hidden" id="panel-revisione">
+        <button data-cmd="submitApproval">Invia in approvazione</button>
+        <select id="approvalOrgan"><option>Consiglio Direttivo</option><option>Segreteria</option><option>Presidenza</option></select>
+        <span id="approvalStatus" class="badge">Bozza</span>
+      </div>
+      <div class="rpanel hidden" id="panel-condivisione">
+        <input id="shareUser" placeholder="Email utente…">
+        <select id="shareRole"><option>viewer</option><option>editor</option><option>owner</option></select>
+        <button data-cmd="shareDoc">Condividi</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="workspace">
+    <div id="sidebar">
+      <div class="sb-section">
+        <h3>Organizzazione</h3>
+        <div id="orgName">—</div>
+      </div>
+      <div class="sb-section">
+        <h3>Fascicoli</h3>
+        <ul id="fascicoliList"></ul>
+      </div>
+      <div class="sb-section">
+        <h3>Documenti recenti</h3>
+        <ul id="recentDocs"></ul>
+      </div>
+    </div>
+    <div id="page-container">
+      <div id="editor-root"></div>
+    </div>
+  </div>
+
+  <div id="statusbar">
+    <span id="userLabel"></span>
+    <span id="wordCount">0 parole</span>
+    <button id="logoutBtn">Esci</button>
+  </div>
+
+  <script src="app.bundle.js"></script>
+</body>
+</html>
