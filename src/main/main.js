@@ -6,7 +6,7 @@ const store = new Store({ name: 'doctouche-config' });
 
 // ─── URL server di sincronizzazione (PythonAnywhere) ───────────────────────
 const SYNC_SERVER_URL = process.env.DOCTOUCHE_SERVER_URL || 'https://doctouche.pythonanywhere.com';
-const PASSWEB_URL = process.env.PASSWEB_URL || 'https://touchesuite.pythonanywhere.com';
+const PASSWEB_URL = process.env.PASSWEB_URL || 'https://doctouche.pythonanywhere.com';
 
 let mainWindow;
 let loginWindow;
