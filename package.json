@@ -1,11 +1,14 @@
 {
   "name": "doctouche",
   "productName": "DocTouché!",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Software di produzione documentale federale offline-first (Word+Excel+PowerPoint in uno, con normativa sportiva integrata)",
   "main": "src/main/main.js",
-  "author": "Touché! Suite",
-  "license": "UNLICENSED",
+  "author": {
+    "name": "Touché!Suite",
+    "email": "touche-sw@outlook.it"
+  },
+  "license": "MIT",
   "scripts": {
     "build:renderer": "webpack --mode production",
     "start": "npm run build:renderer && electron .",
