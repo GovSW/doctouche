@@ -1,0 +1,9 @@
+node_modules/
+release/
+dist/
+*.log
+.DS_Store
+server/__pycache__/
+server/*.db
+server/venv/
+.vscode/
